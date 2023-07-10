@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<form method="post" class="buttons">
+<form method="post">
     <h3>Enter Chat Room</h3>
     <div>
         <label>Name:</label>
@@ -18,4 +18,15 @@
     {% endif %}
     
 </form>
+
+<h3>Current Rooms</h3>
+<div class="room-list">
+  {% for code in room_codes %}
+    <div class="room-item">
+      <span>Room Code: {{ code }}</span>
+      <a href="{{ url_for('room', code=code) }}">Join</a>
+    </div>
+  {% endfor %}
+</div>
+
 {% endblock %}

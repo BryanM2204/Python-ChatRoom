@@ -56,8 +56,12 @@ def home():
 
         # redirects user to the room after joining/ creating
         return redirect(url_for('room'))
+    
+     # Get the list of room codes
+    room_codes = list(rooms.keys())
 
-    return render_template('home.html')
+    # Pass the room codes to the template
+    return render_template('home.html', room_codes=room_codes)
 
 
 @app.route('/room')
