@@ -39,6 +39,18 @@
         socketio.emit("message", {data: message.value});
         message.value = "";
     };
+
+    const handleKeyPress = (event) => {
+    if (event.keyCode === 13) { // 13 is the key code for Enter key
+        event.preventDefault();
+        sendMessage();
+    }
+};
+
+    // Attach the event listener to the input field
+    const messageInput = document.getElementById("message");
+    messageInput.addEventListener("keypress", handleKeyPress);
+
 </script>
 
 {% for msg in messages %}
