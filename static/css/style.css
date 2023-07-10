@@ -1,27 +1,59 @@
+/*   global stuff   */
 .content {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.buttons {
+
+
+
+
+/*   home.html stuff   */
+form {
     display: flex;
     flex-direction:column;
     align-items: center;
     justify-content: center;
-    gap: 10px
+    gap: 10px;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 50px;
 }
 
-.join {
+h3 {
+    text-align: center;
+    margin: 30px;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.name {
+    background: #9ff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.join, .create {
     display: flex;
+    justify-content: center;
+    text-align: center;
     flex-direction: row;
     width: 100%;
+    margin: 10px;
 }
 
-.create-btn {
-    width: 100%;
+.join button {
+    margin-left: 10px;
 }
 
+
+
+
+
+/*   room.html stuff   */
 .message-box {
     border-color: black;
     border-width: 2px;
@@ -44,10 +76,6 @@
 .inputs {
     padding: 10px;
     display: flex;
-}
-
-h2 {
-    text-align: center;
 }
 
 #message {
