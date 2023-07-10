@@ -7,8 +7,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!123'
 socketio = SocketIO(app)
 
-#test
-
 rooms = {}
 
 # creates a unique code for a room - and prevents duplicates
