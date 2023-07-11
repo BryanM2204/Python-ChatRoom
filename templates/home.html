@@ -1,35 +1,52 @@
 {% extends 'base.html' %} {% block content %}
-<form method="post">
-    <h3>Enter Chat Room</h3>
-    <div class="name">
-        <label>Name:</label>
-        <input type="text" placeholder="Pick a name!" name="name" value="{{name}}"/>
-    </div>
-    <div class="join">
-        <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
-        <button type="submit" name="join" class="btn btn-success">Join a Room</button>
-    </div>
-    <p style="margin: 0">OR</p>
-    <div class="create">
-        <button type="submit" name="create" class="btn btn-success">Create a Room</button>
-    </div>
+<div class="container">
+<div class="row">
 
-    {%  if error %}
-    <ul>
-        <li>{{error}}</li>
-    </ul>
-    {% endif %}
-    
-</form>
+  <div class="col-6">
+    <form method="post">
+        <h3>Enter Chat Room</h3>
+        <div class="name">
+            <label>Name:</label>
+            <input type="text" placeholder="Pick a name!" name="name" value="{{name}}"/>
+        </div>
+        <div class="join">
+            <input type="text" placeholder="Room Code" name="code" value="{{code}}"/>
+            <button type="submit" name="join" class="btn btn-success">Join a Room</button>
+        </div>
+        <p style="margin: 0">OR</p>
+        <div class="create">
+            <button type="submit" name="create" class="btn btn-success">Create a Room</button>
+        </div>
 
-<h3>Current Rooms</h3>
-<div class="room-list">
-  {% for code in room_codes %}
-    <div class="room-item">
-      <span>Room Code: {{ code }}</span>
-      <a href="{{ url_for('room', code=code) }}">Join</a>
+        {%  if error %}
+        <script>
+          alert("{{error}}");
+        </script>
+        {% endif %}
+        
+    </form>
+  </div>
+
+  <div class="current-rooms col-6">
+    <h3>Current Rooms</h3>
+    <div class="room-list">
+      {% for code in room_codes %}
+        <div class="room-item">
+          <span>Room Code: {{ code }}</span>
+          <a class="btn btn-primary" href="{{ url_for('room', code=code) }}" role="button">Join</a>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+  </div>
+
 </div>
+</div>
+
+<script>
+  x = document.getElementsByClassName("room-list")[0]
+  if (x.childNodes.length <= 1) {
+    x.innerHTML = "<p>No Rooms!</p>";
+  }
+</script>
 
 {% endblock %}
